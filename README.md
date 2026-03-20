@@ -9,10 +9,13 @@ Must have a serial connection to the Dell MD1200 to your server/computer that yo
    DRIVES=(/dev/sde /dev/sdf /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn /dev/sdo /dev/sdp)
    ```
 2. Copy or create/paste md1200-fan-control.service to your service file locations, usually /etc/systemd/system
-3. sudo systemctl daemon-reload
-4. sudo systemctl enable md1200-fan-control.service
-5. sudo systemctl start md1200-fan-control.service
+3. Reload systemctl daemon
+      sudo systemctl daemon-reload
+4. Enable md1200-fan-control.service
+      sudo systemctl enable md1200-fan-control.service
+5. Start md1200-fan-control service
+      sudo systemctl start md1200-fan-control.service
 
 ## Monitoring/logging
-sudo systemctl status md1200-fan-control.service
-journalctl -fu md1200-fan-control.service
+- sudo systemctl status md1200-fan-control.service
+- journalctl -fu md1200-fan-control.service
