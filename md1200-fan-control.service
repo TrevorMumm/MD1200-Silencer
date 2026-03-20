@@ -1,0 +1,14 @@
+[Unit]
+Description=Dell MD1200 Fan Speed Controller
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/md1200-fan-control.sh
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
