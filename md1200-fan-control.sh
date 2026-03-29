@@ -12,6 +12,9 @@ TEMP_HIGH=55
 
 DRIVES=(/dev/sde /dev/sdf /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn /dev/sdo /dev/sdp)
 
+# Configure serial port: 38400 baud, 8N1, no flow control
+stty -F "$SERIAL_PORT" 38400 cs8 -cstopb -parenb -crtscts raw -echo
+
 set_fan_speed() {
     local speed=$1
     echo -en "set_speed ${speed}\r" > "$SERIAL_PORT"
