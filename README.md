@@ -32,7 +32,7 @@ journalctl -fu md1200-fan-control.service
 
 ## Debugging
 ```
-# set baud and other parameters of usb connect
+# Set baud and other parameters of usb connect
 stty -F /dev/ttyUSB0 38400 cs8 -cstopb -parenb -crtscts raw -echo
 
 # Manually send command through serial to the MD1200
