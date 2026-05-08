@@ -5,10 +5,12 @@ INTERVAL=10
 
 SPEED_NORMAL=10
 SPEED_WARM=50
-SPEED_HOT=100
+SPEED_HOT=80
+SPEED_CRITICAL=100
 
-TEMP_WARN=45
-TEMP_HIGH=55
+TEMP_WARN=40
+TEMP_HIGH=50
+TEMP_CRITICAL=55
 
 DRIVES=(/dev/sde /dev/sdf /dev/sdg /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn /dev/sdo /dev/sdp)
 
@@ -50,6 +52,8 @@ while true; do
     if [[ "$current_time" -ge "1200" && "$current_time" -lt "1205" ]]; then
         target_speed=$SPEED_HOT
         echo "$(date '+%Y-%m-%d %H:%M:%S') *** Daily Drive Blowout Active ***"
+    elif [[ "$max_temp" -ge "$TEMP_CRITICAL" ]]; then
+        target_speed=$SPEED_CRITICAL
     elif [[ "$max_temp" -ge "$TEMP_HIGH" ]]; then
         target_speed=$SPEED_HOT
     elif [[ "$max_temp" -ge "$TEMP_WARN" ]]; then
